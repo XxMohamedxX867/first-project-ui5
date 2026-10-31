@@ -8,6 +8,12 @@ sap.ui.define([
 
     return Controller.extend("sap.ui.demo.walkthrough.controller.App", {
 
+
+        onOpenDialog: function () {
+            this.getOwnerComponent().openHelloDialog(); // instead of writing all the code of Fragment we just write this line
+        }
+
+
         // instead of writing init here we can write it in component file
         
         // onInit: function () {
@@ -29,17 +35,21 @@ sap.ui.define([
         //     this.getView().setModel(i18nModel, "i18n_test") // means to set model called i18n_test so i can use it in view or even the controller itself  
         // },
 
-        onPress: function () {
-            // read msg from i18n model
-            var oBundle = this.getView().getModel("i18n_test").getResourceBundle();
-            var sRecipient = this.getView().getModel().getProperty("/recipient/name")
-            var sMsg = oBundle.getText("HelloMsg", [sRecipient]);
+        // now we made that in separated controller called HelloPanel.controller.js
 
-            // show message
-            MessageToast.show(sMsg)
-        }
+        // onPress: function () {
+        //     // read msg from i18n model
+        //     var oBundle = this.getView().getModel("i18n_test").getResourceBundle();
+        //     var sRecipient = this.getView().getModel().getProperty("/recipient/name")
+        //     var sMsg = oBundle.getText("HelloMsg", [sRecipient]);
+
+        //     // show message
+        //     MessageToast.show(sMsg)
+        // }
+
+    
 
     });
 
-    alert("MAAAAAZEN");
+    
 });

@@ -1,12 +1,30 @@
-<mvc:View controllerName="sap.ui.demo.walkthrough.controller.App"
-xmlns='sap.m'
-xmlns:mvc="sap.ui.core.mvc">
+<mvc:View
+    controllerName="sap.ui.demo.walkthrough.controller.App"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true">
 
-<Button text="Press {i18n_test>shoHelloButtonText}" press="onPress"/>
+    <Shell>
+        <App class="myAppDemoWT">
+            <pages>
+                <Page title="{i18n_test>homePageTitle}">
 
-<Input value="{/recipient/name}"
-        description="Hello {/recipient/name}"
-        valueLiveUpdate="true"
-        width="60%" />
+                    <headerContent>
+                        <Button
+                            icon="sap-icon://action"
+                            type="Transparent"
+                            press="onOpenDialog" />
+                    </headerContent>
+
+                    <content>
+                        <!-- nested View -->
+                        <mvc:XMLView
+                            viewName="sap.ui.demo.walkthrough.view.HelloPanel" />
+                    </content>
+
+                </Page>
+            </pages>
+        </App>
+    </Shell>
 
 </mvc:View>

@@ -1,22 +1,28 @@
-sap.ui.define([
-    // "sap/ui/core/mvc/XMLView"
-    "sap/ui/core/ComponentContainer"
+// Now we don't need this file because we did refere for this in manifset.json
 
 
-], function (ComponentContainer){
-    'use strict';
+// then we did this and now we don't need it 
 
-    new ComponentContainer({
-        name: "sap.ui.demo.walkthrough",
-        settings: {
-            id: 'walkthrough'
-        },
-        async: true
-    }).placeAt("content");
+// sap.ui.define([
+//     // "sap/ui/core/mvc/XMLView"
+//     "sap/ui/core/ComponentContainer"
+
+
+// ], function (ComponentContainer){
+//     'use strict';
+
+//     new ComponentContainer({
+//         name: "sap.ui.demo.walkthrough",
+//         settings: {
+//             id: 'walkthrough'
+//         },
+//         async: true
+//     }).placeAt("content");
     
-}
+// }
 
 
+// we did this first then remove it 
 
 // , function (XMLView) {
 //     'use strict';
@@ -33,4 +39,4 @@ sap.ui.define([
 //     } )
 // }
 
-);
+// );
