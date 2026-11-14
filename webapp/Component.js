@@ -47,6 +47,10 @@ sap.ui.define([                //Can consider it as a declaration file that cent
             // set dialog, _ means private variable, we don't want to access it from outside the component
             this._helloDialog = new HelloDialog(this.getRootControl()); // we pass the root view to the dialog so it can be connected to the root view and it can access the models and lifecycle of the root view
 
+
+            // create the views based on the url/hash
+            this.getRouter().initialize(); 
+            
         },
 
         exit: function () {
