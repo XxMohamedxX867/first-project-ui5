@@ -4,17 +4,30 @@ xmlns="sap.m"
 xmlns:mvc="sap.ui.core.mvc">
 
     <Panel headerText="{i18n_test>helloPanelTitle}"
-            class="sapUiReponsiveMargin"
-            width="auto">
+            class="sapUiResponsiveMargin"
+            width="auto"
+            expandable="{device>/system/phone}"
+            expanded="{= !${device>/system/phone} }"
+            >
         <content>
 
-            <Button
+            <!-- <Button
                     id="showHelloDialogButton"
                     icon="sap-icon://message-popup"
                     text="{i18n_test>openDialogButtonText}"
                     press="onOpenDialog"
                     class="sapUiSmallMarginEnd" 
-                    />
+                    "sapUiVisibleOnlyOnDesktop"
+                    /> -->
+
+            <Button
+                id="showHelloDialogButton"
+                icon="sap-icon://message-popup"
+                text="{i18n>shoHelloButtonText}"
+                press=".onOpenDialog"
+                class="sapUiSmallMarginEnd
+                 sapUiVisibleOnlyOnDesktop"
+                />
             
             <Button text="Press {i18n_test>shoHelloButtonText}"
                     icon="sap-icon://world"

@@ -2,9 +2,10 @@ sap.ui.define([                //Can consider it as a declaration file that cent
     "sap/ui/core/UIComponent", // When We create models here so we don't need to create it on every controller if we have multiple controllers (like top include)
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/resource/ResourceModel",
-    "./controller/HelloDialog"
+    "./controller/HelloDialog",
+    "sap/ui/Device"
 
-], function (UIComponent, JSONModel, ResourceModel,HelloDialog) {
+], function (UIComponent, JSONModel, ResourceModel,HelloDialog, Device) {
     "use strict"
     return UIComponent.extend("sap.ui.demo.walkthrough.Component", {
         metadata: {
@@ -32,6 +33,11 @@ sap.ui.define([                //Can consider it as a declaration file that cent
             var oModel = new JSONModel(oData);
             this.setModel(oModel); // here no need to write getView()
 
+            // set device model
+
+            var oDeviceModel = new JSONModel(Device);
+            oDeviceModel.setDefaultBindingMode("OneWay");
+            this.setModel(oDeviceModel, "device")
 
             // we configured this in manifest.json so we don't need to write this here
 
@@ -52,6 +58,16 @@ sap.ui.define([                //Can consider it as a declaration file that cent
             this.getRouter().initialize(); 
             
         },
+        // getContentDensityClass : function(){
+        //     if(!this._sContentDensityClass){
+        //         if(!Device.support.touch){
+        //             this._sContentDensityClass = "sapUiSizeCompact";
+        //         } else {
+        //             this._sContentDensityClass = "sapUiSizeCozy"
+        //         }
+        //     }
+        //     return this._sContentDensityClass;
+        // },
 
         exit: function () {
             this._helloDialog.destroy(); // to destroy the dialog when the component is destroyed
